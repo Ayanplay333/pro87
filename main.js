@@ -1,128 +1,59 @@
+canvas = document.getElementById("myCanvas");
+ctx= canvas.getContext("2d");
 
-// Create canvas variable
-var canvas = new fabric.Canvas('myCnavas');
-//Set initial positions for ball and hole images.
-ball_x=0;
-ball_y=0;
-hole_y=400;
-hole_x=800;
-block_image_width = 5;
-block_image_height = 5;
-function load_img(){
-	// write code to Upload golf image on the canvas
-	fabric.Image.fromURL("golf-h.png", function(Img){
-hole_obj = Img;
-hole_obj.scaleToWidth(50);
-hole_obj.scaleToHeight(50);
-hole_obj.set({
-	top:hole_y,
-	left:hole_x
-});
-	canvas.add(hole_obj);
+/*
+    Use beginPath() function to begin a path.
+    Then, use strokeStyle to set the color to "grey".
+    Use lineWidth and set the width to 1.
+    Use rect() to create a rectangle at 150 and 143
+with 430 width and 200 height.
+*/
 
-	});
+ctx.beginPath();
+ctx.strokeStyle = "grey";
+ctx.lineWidth = 1;
+ctx.rect( 150, 143, 430, 200);
+ctx.stroke();
 
-}
+/*
+    Use beginPath() function to begin a path.
+    Then, use strokeStyle to set the color to "blue".
+    Use lineWidth and set the width to 5.
+    Use arc() to create a circle at x = 150 and y = 143
+with 40 as radius, 0 startAngle and 2 * Math.PI endAngle.
+*/
 
-function new_image()
-{
-	// write code to Upload ball image on canvas
-	fabric.Image.fromURL("ball.png", function(Img){
-		ball_obj = Img
-		ball_obj.scaleToWidth(50);
-		ball_obj.scaleToHeight(50);
-		ball_obj.set({
-			top:ball_y,
-			left:ball_x
-		});
-		canvas.add(ball_obj);
-	});
-}
+ctx.beginPath();
+ctx.strokeStyle = "blue";
+ctx.lineWidth = 5;
+ctx.arc(250, 210, 40, 0 ,2 * Math.PI);
+ctx.stroke();
 
-window.addEventListener("keydown", my_keydown);
+// Similarly, create a black circle with position 350 and 210
+ 
+ctx.beginPath();
+ctx.strokeStyle = "black";
+ctx.lineWidth = 5;
+ctx.arc(350, 210, 40, 0 ,2 * Math.PI);
+ctx.stroke();
 
-function my_keydown(e)
-{
-	keyPressed = e.keyCode;
-	console.log(keyPressed);
-	/* Check the coordinates of the ball and hole images to finish the game. 
-	And id coordinates matches them remove ball image, 
-	display "GAME OVER!!!" 
-	and make canvas border 'red'. */
-	if((ball_x==hole_x)&&(ball==hole_y)){
-		canvas.remove(ball_obj);
-	}
-else{
-		if(keyPressed == '38')
-		{
-			up();
-			console.log("up");
-		}
-		if(keyPressed == '40')
-		{
-			down();
-			console.log("down");
-		}
-		if(keyPressed == '37')
-		{
-			left();
-			console.log("left");
-		}
-		if(keyPressed == '39')
-		{
-			right();
-			console.log("right");
-		}
-	}
-	
-	function up()
-	{
-		if(ball_y >=0)
-		{
-		ball_y = ball_y - block_image_height;
-		console.log("block image height =" + block_image_height);
-		console.log("When up arrow key is pressed, X =  " + ball_x +" , Y = "+ball_y);
-		canvas.remove();
-		new_image();
-	    }
-	}
+// Similarly, create a red circle with position 210 and 40
+ctx.beginPath();
+ctx.strokeStyle = "red";
+ctx.lineWidth = 5;
+ctx.arc(440, 210, 40, 0 ,2 * Math.PI);
+ctx.stroke();
 
-	function down()
-	{
-	  if(ball_y <=450)
-	  {
-		ball_y = ball_y + block_image_height;
-		console.log("block image height =" + block_image_height);
-		console.log("When Down arrow key is pressed, X =  " + ball_x +" , Y = "+ball_y);
-		canvas.remove();
-		new_image();
-	  }
-	  
-	}
+// Similarly, create an orange circle with position 300 and 250
+ctx.beginPath();
+ctx.strokeStyle = "orange";
+ctx.lineWidth = 5;
+ctx.arc(300, 250, 40, 0 ,2 * Math.PI);
+ctx.stroke();
 
-	function left()
-	{
-		if(ball_x >5)
-		{
-			ball_x = ball_x + block_image_width;
-			console.log("block image width =" + block_image_width);
-			console.log("When left arrow key is pressed, X =  " + ball_x +" , Y = "+ball_y);
-			canvas.remove();
-			new_image();
-		}
-	}
-
-	function right()
-	{
-		if(ball_x <=1050)
-		{
-			ball_x = ball_x + block_image_width;
-		console.log("block image width =" + block_image_width);
-		console.log("When right arrow key is pressed, X =  " + ball_x +" , Y = "+ball_y);
-		canvas.remove();
-		new_image();
-		}
-	}
-	
-}
-
+// Similarly, create a green circle with position 400 and 250
+ctx.beginPath();
+ctx.strokeStyle = "green";
+ctx.lineWidth = 5;
+ctx.arc(400, 250, 40, 0 ,2 * Math.PI);
+ctx.stroke();

@@ -1,21 +1,22 @@
-.body_background 
-{
+.body_backgorund {
+    background-image: url("bg1.png");
     background-position: center;
-    background-size:contain;
-	background:url(Grass.jpg);
-}
-#myCanvas
-{
-    border-width:10px;
-    border-style:ridge;
-	background-color:forestgreen;
-}
+    background-size: cover;
+  }
 
-
-#hd3{
-	display: inline-block;
-	color: red;
-	background-color: aliceblue;
-	font-family: fantasy;
-}
-
+  h1
+  {
+      color: red; 
+      font-size: 40px;
+  }
+  
+  #myCanvas
+  {
+      background-color: white; 
+      border-style:ridge;
+  }
+  
+  span
+  {
+      font-size: 20px;
+  }
